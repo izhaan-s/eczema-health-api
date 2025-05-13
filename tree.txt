@@ -1,0 +1,10 @@
+Folder PATH listing for volume Windows-SSD
+Volume serial number is 8A8E-59C4
+C:.
++---app
+¦   +---api
+¦   +---core
+¦   +---crud
+¦   +---models
+¦   +---schema
++---__pycache__
