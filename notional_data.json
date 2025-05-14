@@ -1,0 +1,303 @@
+[
+    {
+      "id": "log_001",
+      "user_id": "user_001",
+      "date": "2025-03-01",
+      "symptoms": ["itching", "dryness"],
+      "medications": ["Emollient"],
+      "severity": 2,
+      "created_at": "2025-03-01",
+      "updated_at": "2025-03-01"
+    },
+    {
+      "id": "log_002",
+      "user_id": "user_001",
+      "date": "2025-03-04",
+      "symptoms": ["dryness"],
+      "medications": [],
+      "severity": 1,
+      "created_at": "2025-03-04",
+      "updated_at": "2025-03-04"
+    },
+    {
+      "id": "log_003",
+      "user_id": "user_001",
+      "date": "2025-03-07",
+      "symptoms": ["itching", "redness"],
+      "medications": ["Hydrocortisone"],
+      "severity": 2,
+      "created_at": "2025-03-07",
+      "updated_at": "2025-03-07"
+    },
+    {
+      "id": "log_004",
+      "user_id": "user_001",
+      "date": "2025-03-09",
+      "symptoms": ["itching", "redness", "dryness"],
+      "medications": ["Hydrocortisone", "Emollient"],
+      "severity": 3,
+      "created_at": "2025-03-09",
+      "updated_at": "2025-03-09"
+    },
+    {
+      "id": "log_005",
+      "user_id": "user_001",
+      "date": "2025-03-11",
+      "symptoms": ["dryness", "flaking"],
+      "medications": ["Emollient"],
+      "severity": 2,
+      "created_at": "2025-03-11",
+      "updated_at": "2025-03-11"
+    },
+    {
+      "id": "log_006",
+      "user_id": "user_001",
+      "date": "2025-03-13",
+      "symptoms": ["itching"],
+      "medications": [],
+      "severity": 2,
+      "created_at": "2025-03-13",
+      "updated_at": "2025-03-13"
+    },
+    {
+      "id": "log_007",
+      "user_id": "user_001",
+      "date": "2025-03-14",
+      "symptoms": ["itching", "redness"],
+      "medications": ["Hydrocortisone", "Emollient"],
+      "severity": 3,
+      "created_at": "2025-03-14",
+      "updated_at": "2025-03-14"
+    },
+    {
+      "id": "log_008",
+      "user_id": "user_001",
+      "date": "2025-03-15",
+      "symptoms": ["itching", "redness", "dryness"],
+      "medications": ["Hydrocortisone", "Emollient"],
+      "severity": 4,
+      "created_at": "2025-03-15",
+      "updated_at": "2025-03-15"
+    },
+    {
+      "id": "log_009",
+      "user_id": "user_001",
+      "date": "2025-03-16",
+      "symptoms": ["itching", "redness", "swelling"],
+      "medications": ["Betnovate", "Emollient"],
+      "severity": 5,
+      "created_at": "2025-03-16",
+      "updated_at": "2025-03-16"
+    },
+    {
+      "id": "log_010",
+      "user_id": "user_001",
+      "date": "2025-03-17",
+      "symptoms": ["itching", "redness", "cracking"],
+      "medications": ["Betnovate", "Emollient"],
+      "severity": 4,
+      "created_at": "2025-03-17",
+      "updated_at": "2025-03-17"
+    },
+    {
+      "id": "log_011",
+      "user_id": "user_001",
+      "date": "2025-03-18",
+      "symptoms": ["itching", "flaking"],
+      "medications": ["Hydrocortisone", "Emollient"],
+      "severity": 3,
+      "created_at": "2025-03-18",
+      "updated_at": "2025-03-18"
+    },
+    {
+      "id": "log_012",
+      "user_id": "user_001",
+      "date": "2025-03-20",
+      "symptoms": ["dryness"],
+      "medications": ["Emollient"],
+      "severity": 2,
+      "created_at": "2025-03-20",
+      "updated_at": "2025-03-20"
+    },
+    {
+      "id": "log_013",
+      "user_id": "user_001",
+      "date": "2025-03-22",
+      "symptoms": ["flaking"],
+      "medications": [],
+      "severity": 1,
+      "created_at": "2025-03-22",
+      "updated_at": "2025-03-22"
+    },
+    {
+      "id": "log_014",
+      "user_id": "user_001",
+      "date": "2025-03-25",
+      "symptoms": ["itching"],
+      "medications": [],
+      "severity": 2,
+      "created_at": "2025-03-25",
+      "updated_at": "2025-03-25"
+    },
+    {
+      "id": "log_015",
+      "user_id": "user_001",
+      "date": "2025-03-27",
+      "symptoms": ["itching", "dryness"],
+      "medications": ["Hydrocortisone", "Emollient"],
+      "severity": 3,
+      "created_at": "2025-03-27",
+      "updated_at": "2025-03-27"
+    },
+    {
+      "id": "log_016",
+      "user_id": "user_001",
+      "date": "2025-03-30",
+      "symptoms": ["itching", "redness", "dryness"],
+      "medications": ["Hydrocortisone", "Emollient"],
+      "severity": 3,
+      "created_at": "2025-03-30",
+      "updated_at": "2025-03-30"
+    },
+    {
+      "id": "log_017",
+      "user_id": "user_001",
+      "date": "2025-04-01",
+      "symptoms": ["dryness", "flaking"],
+      "medications": ["Emollient"],
+      "severity": 2,
+      "created_at": "2025-04-01",
+      "updated_at": "2025-04-01"
+    },
+    {
+      "id": "log_018",
+      "user_id": "user_001",
+      "date": "2025-04-03",
+      "symptoms": ["itching", "redness", "dryness"],
+      "medications": ["Hydrocortisone", "Emollient"],
+      "severity": 3,
+      "created_at": "2025-04-03",
+      "updated_at": "2025-04-03"
+    },
+    {
+      "id": "log_019",
+      "user_id": "user_001",
+      "date": "2025-04-04",
+      "symptoms": ["itching", "redness", "dryness"],
+      "medications": ["Hydrocortisone", "Cetraben"],
+      "severity": 4,
+      "created_at": "2025-04-04",
+      "updated_at": "2025-04-04"
+    },
+    {
+      "id": "log_020",
+      "user_id": "user_001",
+      "date": "2025-04-05",
+      "symptoms": ["itching", "redness", "swelling"],
+      "medications": ["Clobetasol", "Cetraben"],
+      "severity": 5,
+      "created_at": "2025-04-05",
+      "updated_at": "2025-04-05"
+    },
+    {
+      "id": "log_021",
+      "user_id": "user_001",
+      "date": "2025-04-06",
+      "symptoms": ["itching", "redness", "oozing"],
+      "medications": ["Clobetasol", "Cetraben"],
+      "severity": 5,
+      "created_at": "2025-04-06",
+      "updated_at": "2025-04-06"
+    },
+    {
+      "id": "log_022",
+      "user_id": "user_001",
+      "date": "2025-04-07",
+      "symptoms": ["itching", "redness", "cracking"],
+      "medications": ["Clobetasol", "Cetraben"],
+      "severity": 5,
+      "created_at": "2025-04-07",
+      "updated_at": "2025-04-07"
+    },
+    {
+      "id": "log_023",
+      "user_id": "user_001",
+      "date": "2025-04-08",
+      "symptoms": ["itching", "redness", "flaking"],
+      "medications": ["Tacrolimus", "Cetraben"],
+      "severity": 4,
+      "created_at": "2025-04-08",
+      "updated_at": "2025-04-08"
+    },
+    {
+      "id": "log_024",
+      "user_id": "user_001",
+      "date": "2025-04-10",
+      "symptoms": ["itching", "dryness", "flaking"],
+      "medications": ["Tacrolimus", "Cetraben"],
+      "severity": 3,
+      "created_at": "2025-04-10",
+      "updated_at": "2025-04-10"
+    },
+    {
+      "id": "log_025",
+      "user_id": "user_001",
+      "date": "2025-04-13",
+      "symptoms": ["itching", "thickening"],
+      "medications": ["Cetraben"],
+      "severity": 2,
+      "created_at": "2025-04-13",
+      "updated_at": "2025-04-13"
+    },
+    {
+      "id": "log_026",
+      "user_id": "user_001",
+      "date": "2025-04-16",
+      "symptoms": ["dryness"],
+      "medications": ["Cetraben"],
+      "severity": 2,
+      "created_at": "2025-04-16",
+      "updated_at": "2025-04-16"
+    },
+    {
+      "id": "log_027",
+      "user_id": "user_001",
+      "date": "2025-04-20",
+      "symptoms": ["itching", "redness", "dryness"],
+      "medications": ["Hydrocortisone", "Cetraben"],
+      "severity": 3,
+      "created_at": "2025-04-20",
+      "updated_at": "2025-04-20"
+    },
+    {
+      "id": "log_028",
+      "user_id": "user_001",
+      "date": "2025-04-24",
+      "symptoms": ["dryness", "flaking"],
+      "medications": ["Cetraben"],
+      "severity": 2,
+      "created_at": "2025-04-24",
+      "updated_at": "2025-04-24"
+    },
+    {
+      "id": "log_029",
+      "user_id": "user_001",
+      "date": "2025-04-27",
+      "symptoms": ["itching"],
+      "medications": [],
+      "severity": 2,
+      "created_at": "2025-04-27",
+      "updated_at": "2025-04-27"
+    },
+    {
+      "id": "log_030",
+      "user_id": "user_001",
+      "date": "2025-04-30",
+      "symptoms": ["flaking"],
+      "medications": [],
+      "severity": 1,
+      "created_at": "2025-04-30",
+      "updated_at": "2025-04-30"
+    }
+  ]
+  
