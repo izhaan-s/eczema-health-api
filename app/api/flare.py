@@ -16,7 +16,7 @@ def get_symptom_insights(entries: List[SymptomEntry]):
     # TODO: Implement the logic to analyse symptom entries
     return {"message": "Symptom insights generated successfully"}
     
-@router.post("/insights/flare-clusters", response_model=List[FlareCluster])
+@router.post("/flare/clusters", response_model=List[FlareCluster])
 def get_flare_clusters(entries: List[SymptomEntry]):
     """
     Detect flare clusters in the given dataframe with a severity threshold and minimum duration.
@@ -26,7 +26,7 @@ def get_flare_clusters(entries: List[SymptomEntry]):
     flares = detect_flare_clusters(df, 3, 3)
     return flares
 
-@router.post("/insights/flare-gaps", response_model=Tuple[List[int], List[str], float, float])
+@router.post("/flare/gaps", response_model=Tuple[List[int], List[str], float, float])
 def get_flare_gaps(entries: List[SymptomEntry]):
     """
     Calculate the gaps between flare clusters and the average gap.
@@ -36,7 +36,7 @@ def get_flare_gaps(entries: List[SymptomEntry]):
     gaps, labels, avg_gap, recent_trend = calculate_flare_gaps(df)
     return {"gaps": gaps, "labels": labels, "avg_gap": avg_gap, "recent_trend": recent_trend}
 
-@router.post("/insights/preflare-symptoms", response_model=Dict[str, int])
+@router.post("/flare/preflare-symptoms", response_model=Dict[str, int])
 def get_preflare_symptoms(entries: List[SymptomEntry]):
     """
     Get the top k symptoms before a flare going to be used to suggest treatment shortly before flares.
