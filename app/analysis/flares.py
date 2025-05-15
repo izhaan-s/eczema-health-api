@@ -1,42 +1,34 @@
-from pydantic import BaseModel
+from datetime import datetime
 from typing import List
 import pandas as pd
+from pydantic import BaseModel
+
 
 class FlareCluster(BaseModel):
-    start: pd.Timestamp
-    end: pd.Timestamp
+    start: datetime
+    end: datetime
     duration: int
 
 def detect_flare_clusters(df: pd.DataFrame, threshold: int = 4, min_duration: int = 2) -> List[FlareCluster]:
     df = df.copy()
-    df['date'] = pd.to_datetime(df['date'])
-    df['severity'] = pd.to_numeric(df['severity'], errors='coerce')
+    df["date"] = pd.to_datetime(df["date"])
+    df["severity"] = pd.to_numeric(df["severity"], errors="coerce")
     df = df.sort_values("date")
 
     df["is_flare"] = df["severity"] > threshold
+    flare_days = df[df["is_flare"]].reset_index(drop=True)
 
-    flare_clusters = []
-    current_cluster = None
+    flare_days["gap"] = flare_days["date"].diff().dt.days.fillna(1)
+    flare_days["flare_group"] = (flare_days["gap"] > 1).cumsum()
 
-    for _, row in df.iterrows():
-        if row["is_flare"]:
-            if current_cluster is None:
-                current_cluster = FlareCluster(
-                    start=row["date"],
-                    end=row["date"],
-                    duration=1
-                )
-            else:
-                current_cluster.end = row["date"]
-                current_cluster.duration += 1
-        else:
-            if current_cluster is not None:
-                if current_cluster.duration >= min_duration:
-                    flare_clusters.append(current_cluster)
-                current_cluster = None  # reset after end
+    clusters = []
+    for _, group in flare_days.groupby("flare_group"):
+        duration = (group["date"].iloc[-1] - group["date"].iloc[0]).days + 1
+        if duration >= min_duration:
+            clusters.append(FlareCluster(
+                start=group["date"].iloc[0],
+                end=group["date"].iloc[-1],
+                duration=duration
+            ))
 
-    # catch cluster at end of data
-    if current_cluster is not None and current_cluster.duration >= min_duration:
-        flare_clusters.append(current_cluster)
-
-    return flare_clusters
+    return clusters
