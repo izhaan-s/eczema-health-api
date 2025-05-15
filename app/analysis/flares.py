@@ -1,8 +1,8 @@
 from datetime import datetime
-from typing import List, Tuple
+from typing import List, Tuple, Dict
 import pandas as pd
 from pydantic import BaseModel
-
+from collections import defaultdict
 
 class FlareCluster(BaseModel):
     start: datetime
@@ -10,6 +10,9 @@ class FlareCluster(BaseModel):
     duration: int
 
 def detect_flare_clusters(df: pd.DataFrame, threshold: int = 4, min_duration: int = 2) -> List[FlareCluster]:
+    """
+    Detect flare clusters in the given dataframe with a severity threshold and minimum duration.
+    """
     df = df.copy()
     df["date"] = pd.to_datetime(df["date"])
     df["severity"] = pd.to_numeric(df["severity"], errors="coerce")
@@ -34,6 +37,9 @@ def detect_flare_clusters(df: pd.DataFrame, threshold: int = 4, min_duration: in
     return clusters
 
 def calculate_flare_gaps(df: pd.DataFrame, threshold: int = 4, min_duration: int = 2) -> Tuple[List[int], List[str], float, float]:
+    """
+    Calculate the gaps between flare clusters and the average gap.
+    """
     clusters = detect_flare_clusters(df, threshold, min_duration)
     if len(clusters) < 2:
         return [], [], 0, 0
@@ -54,3 +60,24 @@ def calculate_flare_gaps(df: pd.DataFrame, threshold: int = 4, min_duration: int
         recent_trend = 0
     
     return gaps, labels, avg_gap, recent_trend
+
+def get_preflare_symptom_counts(df: pd.DataFrame, window: int = 3, top_k: int = 5) -> Dict[str, int]:
+    """
+    Get the top k symptoms before a flare going to be used to suggest treatment shortly before flares.
+    """
+    df = df.copy()
+    df["date"] = pd.to_datetime(df["date"])
+    flares = detect_flare_clusters(df)
+
+    symptom_counts = defaultdict(int)
+
+    for flare in flares:
+        start = flare.start
+        window_df = df[(df['date'] >= start - pd.Timedelta(days=window)) & (df['date'] < start)]
+        for symptoms in window_df["symptoms"].dropna():
+            if isinstance(symptoms, list):
+                for s in symptoms:
+                    symptom_counts[s] += 1
+
+    top_symptoms = sorted(symptom_counts.items(), key=lambda x: -x[1])[:top_k]
+    return {symptom: count for symptom, count in top_symptoms}
