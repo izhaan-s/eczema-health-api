@@ -6,7 +6,7 @@ from typing import List, Dict
 
 router = APIRouter()
 
-@router.post("/symptom/matrix", response_model=pd.DataFrame)
+@router.post("/symptom/matrix", response_model=List[dict])
 def get_symptom_matrix(entries: List[SymptomEntry]):
     """
     Get the symptom matrix for the given entries.

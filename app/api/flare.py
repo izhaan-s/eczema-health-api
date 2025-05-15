@@ -34,7 +34,7 @@ def get_flare_gaps(entries: List[SymptomEntry]):
     """
     df = pd.DataFrame([e.model_dump() for e in entries])
     gaps, labels, avg_gap, recent_trend = calculate_flare_gaps(df)
-    return {"gaps": gaps, "labels": labels, "avg_gap": avg_gap, "recent_trend": recent_trend}
+    return (gaps, labels, avg_gap, recent_trend)
 
 @router.post("/flare/preflare-symptoms", response_model=Dict[str, int])
 def get_preflare_symptoms(entries: List[SymptomEntry]):
