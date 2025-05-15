@@ -1,5 +1,5 @@
 from datetime import datetime
-from typing import List
+from typing import List, Tuple
 import pandas as pd
 from pydantic import BaseModel
 
@@ -32,3 +32,25 @@ def detect_flare_clusters(df: pd.DataFrame, threshold: int = 4, min_duration: in
             ))
 
     return clusters
+
+def calculate_flare_gaps(df: pd.DataFrame, threshold: int = 4, min_duration: int = 2) -> Tuple[List[int], List[str], float, float]:
+    clusters = detect_flare_clusters(df, threshold, min_duration)
+    if len(clusters) < 2:
+        return [], [], 0, 0
+
+    gaps = []
+    labels = []
+    for i in range(1, len(clusters)):
+        gap = (clusters[i].start - clusters[i-1].end).days
+        gaps.append(gap)
+        label = f"{clusters[i-1].duration}d {clusters[i].duration}d"
+        labels.append(label)
+    
+    avg_gap = sum(gaps) / len(gaps)
+
+    if len(gaps) >= 2:
+        recent_trend = (gaps[-1] - gaps[-2]) / gaps[-2] * 100
+    else:
+        recent_trend = 0
+    
+    return gaps, labels, avg_gap, recent_trend
