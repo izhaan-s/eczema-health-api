@@ -10,10 +10,21 @@ router = APIRouter()
 def get_symptom_matrix(entries: List[SymptomEntry]):
     """
     Get the symptom matrix for the given entries.
-    returns a pandas dataframe with the symptom matrix
+    returns a list of dictionaries with explicitly converted float values
     """
     df = pd.DataFrame([e.model_dump() for e in entries])
-    return compute_matrix(df)
+    matrix = compute_matrix(df)
+    
+    # Convert the matrix to list of dictionaries with explicit float conversion
+    result = []
+    for symptom in matrix.index:
+        row_dict = {}
+        for col in matrix.columns:
+            # Explicitly convert each value to float
+            row_dict[col] = float(matrix.at[symptom, col])
+        result.append(row_dict)
+    
+    return result
 
 @router.post("/symptom/impact", response_model=Dict[int, float])
 def get_symptom_impact(entries: List[SymptomEntry], medication: str):
